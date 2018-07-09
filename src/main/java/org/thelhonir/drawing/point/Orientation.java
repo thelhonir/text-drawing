@@ -1,24 +1,25 @@
 package org.thelhonir.drawing.point;
 
 public enum Orientation {
-    HORIZONTAL_LEFT, HORIZONTAL_RIGHT, VERTICAL_UP, VERTICAL_DOWN;
+    LEFT, RIGHT, UP, DOWN;
 
     /**
-     * TODO - Refactor this function to get the orientation from a Coordinates
-     * comparator.
+     * Returns the orientation between 2 nodes based on the coordinates
+     * 
+     * TODO refactor this to get this orientation from a Coordinates comparator
      */
     public static Orientation getOrientation(Point from, Point to) {
         if (from.getCoordinates().getX() == to.getCoordinates().getX()) {
             if (from.getCoordinates().getY() < to.getCoordinates().getY()) {
-                return HORIZONTAL_RIGHT;
+                return RIGHT;
             } else {
-                return HORIZONTAL_LEFT;
+                return LEFT;
             }
         } else {
             if (from.getCoordinates().getX() < to.getCoordinates().getX()) {
-                return VERTICAL_DOWN;
+                return DOWN;
             } else {
-                return VERTICAL_UP;
+                return UP;
             }
         }
     }

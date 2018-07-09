@@ -11,6 +11,7 @@ import org.thelhonir.drawing.exception.InvalidLineException;
 import org.thelhonir.drawing.point.builder.PointBuilder;
 
 public class App {
+
     public static void main(String[] args) {
 
         Canvas canvas = new CanvasBuilder().build();

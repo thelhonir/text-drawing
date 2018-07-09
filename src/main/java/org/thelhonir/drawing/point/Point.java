@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Point {
     private boolean visible;
     private Coordinates coordinates;
-    private HashMap<RefPosition, Coordinates> neighbourCoordinates = new HashMap<RefPosition, Coordinates>();;
+    private HashMap<Orientation, Coordinates> neighbourCoordinates = new HashMap<Orientation, Coordinates>();;
 
     public Point(Coordinates coordinates, boolean visible) {
         this.coordinates = coordinates;
@@ -21,7 +21,7 @@ public class Point {
         return this.coordinates;
     }
 
-    public HashMap<RefPosition, Coordinates> getNeighbourCoordinates() {
+    public HashMap<Orientation, Coordinates> getNeighbourCoordinates() {
         return this.neighbourCoordinates;
     }
 
@@ -34,16 +34,10 @@ public class Point {
      * case adjacent nodes in vertical or horizontal relationships
      */
     private void buildNeighbourCoordinates() {
-        neighbourCoordinates.put(RefPosition.LEFT_UP, new Coordinates(coordinates.getX() - 1, coordinates.getY() - 1));
-        neighbourCoordinates.put(RefPosition.UP, new Coordinates(coordinates.getX() - 1, coordinates.getY()));
-        neighbourCoordinates.put(RefPosition.RIGHT_UP, new Coordinates(coordinates.getX() - 1, coordinates.getY() + 1));
-        neighbourCoordinates.put(RefPosition.LEFT, new Coordinates(coordinates.getX(), coordinates.getY() - 1));
-        neighbourCoordinates.put(RefPosition.RIGHT, new Coordinates(coordinates.getX(), coordinates.getY() + 1));
-        neighbourCoordinates.put(RefPosition.LEFT_DOWN,
-                new Coordinates(coordinates.getX() + 1, coordinates.getY() - 1));
-        neighbourCoordinates.put(RefPosition.DOWN, new Coordinates(coordinates.getX() + 1, coordinates.getY()));
-        neighbourCoordinates.put(RefPosition.RIGHT_DOWN,
-                new Coordinates(coordinates.getX() + 1, coordinates.getY() + 1));
+        neighbourCoordinates.put(Orientation.UP, new Coordinates(coordinates.getX() - 1, coordinates.getY()));
+        neighbourCoordinates.put(Orientation.LEFT, new Coordinates(coordinates.getX(), coordinates.getY() - 1));
+        neighbourCoordinates.put(Orientation.RIGHT, new Coordinates(coordinates.getX(), coordinates.getY() + 1));
+        neighbourCoordinates.put(Orientation.DOWN, new Coordinates(coordinates.getX() + 1, coordinates.getY()));
     }
 
     @Override
