@@ -38,6 +38,7 @@ public class Point {
         neighbourCoordinates.put(Orientation.LEFT, new Coordinates(coordinates.getX(), coordinates.getY() - 1));
         neighbourCoordinates.put(Orientation.RIGHT, new Coordinates(coordinates.getX(), coordinates.getY() + 1));
         neighbourCoordinates.put(Orientation.DOWN, new Coordinates(coordinates.getX() + 1, coordinates.getY()));
+        neighbourCoordinates.put(Orientation.NONE, this.coordinates);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package org.thelhonir.drawing.point;
 
 public enum Orientation {
-    LEFT, RIGHT, UP, DOWN;
+    LEFT, RIGHT, UP, DOWN, NONE;
 
     /**
      * Returns the orientation between 2 nodes based on the coordinates
@@ -12,15 +12,16 @@ public enum Orientation {
         if (from.getCoordinates().getX() == to.getCoordinates().getX()) {
             if (from.getCoordinates().getY() < to.getCoordinates().getY()) {
                 return RIGHT;
-            } else {
+            } else if(from.getCoordinates().getY() > to.getCoordinates().getY()){
                 return LEFT;
             }
         } else {
             if (from.getCoordinates().getX() < to.getCoordinates().getX()) {
                 return DOWN;
-            } else {
+            } else  if (from.getCoordinates().getX() > to.getCoordinates().getX()){
                 return UP;
             }
         }
+        return NONE;
     }
 }

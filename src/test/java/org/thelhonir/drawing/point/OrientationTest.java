@@ -46,4 +46,14 @@ public class OrientationTest {
         System.out.println("- Orientation should return DOWN");
         assertEquals(Orientation.DOWN, Orientation.getOrientation(from, to));
     }
+
+    @Test
+    public void testGetNoneOrientation() {
+
+        Point from = new PointBuilder().build();
+        Point to = new PointBuilder().build();
+
+        System.out.println("- Orientation should return NONE");
+        assertEquals(Orientation.NONE, Orientation.getOrientation(from, to));
+    }
 }

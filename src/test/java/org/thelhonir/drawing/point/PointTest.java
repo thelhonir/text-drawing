@@ -17,6 +17,7 @@ public class PointTest {
         expectedNeighboursMap.put(Orientation.UP, new Coordinates(-1, 0));
         expectedNeighboursMap.put(Orientation.RIGHT, new Coordinates(0, 1));
         expectedNeighboursMap.put(Orientation.LEFT, new Coordinates(0, -1));
+        expectedNeighboursMap.put(Orientation.NONE, new Coordinates(0, 0));
 
         Point point = new PointBuilder().coordinateX(0).coordinateY(0).build();
 
